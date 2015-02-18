@@ -15,7 +15,7 @@ namespace ToDo.Controllers
     {
         private ToDoContext db = new ToDoContext();
 
-        // GET: Schedule
+        // GET: Generate schedules for each task, assign workers
         public ActionResult Index()
         {
             var schedules = new List<Schedule>();
@@ -55,10 +55,6 @@ namespace ToDo.Controllers
 
             }
 
-            //db.Schedules.AddRange(schedules);
-            //db.SaveChanges();
-
-            //var schedules = db.Schedules.Include(s => s.Worker);
             return View(schedules.ToList());
         }
 

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ToDo.Models.Worker>
+
+@{
+    ViewBag.Title = "Delete all Workers";
+}
+
+<h2>Delete all Workers</h2>
+
+<h3>Are you sure you want to delete all workers?</h3>
+
+<div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="DeleteAll" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Worker list", "Index")
+        </div>
+    }
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+

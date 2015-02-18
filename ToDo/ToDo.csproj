@@ -160,52 +160,19 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
-    <Compile Include="DAL\ScheduleContext.cs" />
-    <Compile Include="DAL\ScheduleInitializer.cs" />
+    <Compile Include="DAL\ToDoContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502120641471_init.cs" />
-    <Compile Include="Migrations\201502120641471_init.Designer.cs">
-      <DependentUpon>201502120641471_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502120713028_RemovedWorkerIDFromSchedule.cs" />
-    <Compile Include="Migrations\201502120713028_RemovedWorkerIDFromSchedule.Designer.cs">
-      <DependentUpon>201502120713028_RemovedWorkerIDFromSchedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502120723525_WorkerAssignedPropertyAdded.cs" />
-    <Compile Include="Migrations\201502120723525_WorkerAssignedPropertyAdded.Designer.cs">
-      <DependentUpon>201502120723525_WorkerAssignedPropertyAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502120728491_TidiedSeedMethod.cs" />
-    <Compile Include="Migrations\201502120728491_TidiedSeedMethod.Designer.cs">
-      <DependentUpon>201502120728491_TidiedSeedMethod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502120848049_RemovedWorkerAssignedBool.cs" />
-    <Compile Include="Migrations\201502120848049_RemovedWorkerAssignedBool.Designer.cs">
-      <DependentUpon>201502120848049_RemovedWorkerAssignedBool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502150204074_ForeignKeyConstraintBetweenScheduleAndWorker.cs" />
-    <Compile Include="Migrations\201502150204074_ForeignKeyConstraintBetweenScheduleAndWorker.Designer.cs">
-      <DependentUpon>201502150204074_ForeignKeyConstraintBetweenScheduleAndWorker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502170506476_RemovedTaskWorkerNav.cs" />
-    <Compile Include="Migrations\201502170506476_RemovedTaskWorkerNav.Designer.cs">
-      <DependentUpon>201502170506476_RemovedTaskWorkerNav.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502170511559_RemovedSchedules.cs" />
-    <Compile Include="Migrations\201502170511559_RemovedSchedules.Designer.cs">
-      <DependentUpon>201502170511559_RemovedSchedules.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502170518384_init1.cs" />
-    <Compile Include="Migrations\201502170518384_init1.Designer.cs">
-      <DependentUpon>201502170518384_init1.cs</DependentUpon>
+    <Compile Include="Migrations\201502180607146_init.cs" />
+    <Compile Include="Migrations\201502180607146_init.Designer.cs">
+      <DependentUpon>201502180607146_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -249,30 +216,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Workers\Create.cshtml" />
     <Content Include="Views\Workers\Delete.cshtml" />
     <Content Include="Views\Workers\Details.cshtml" />
@@ -284,6 +229,8 @@
     <Content Include="Views\Tasks\Details.cshtml" />
     <Content Include="Views\Tasks\Edit.cshtml" />
     <Content Include="Views\Tasks\Index.cshtml" />
+    <Content Include="Views\Tasks\DeleteAll.cshtml" />
+    <Content Include="Views\Workers\DeleteAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,32 +243,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502120641471_init.resx">
-      <DependentUpon>201502120641471_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502120713028_RemovedWorkerIDFromSchedule.resx">
-      <DependentUpon>201502120713028_RemovedWorkerIDFromSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502120723525_WorkerAssignedPropertyAdded.resx">
-      <DependentUpon>201502120723525_WorkerAssignedPropertyAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502120728491_TidiedSeedMethod.resx">
-      <DependentUpon>201502120728491_TidiedSeedMethod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502120848049_RemovedWorkerAssignedBool.resx">
-      <DependentUpon>201502120848049_RemovedWorkerAssignedBool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502150204074_ForeignKeyConstraintBetweenScheduleAndWorker.resx">
-      <DependentUpon>201502150204074_ForeignKeyConstraintBetweenScheduleAndWorker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502170506476_RemovedTaskWorkerNav.resx">
-      <DependentUpon>201502170506476_RemovedTaskWorkerNav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502170511559_RemovedSchedules.resx">
-      <DependentUpon>201502170511559_RemovedSchedules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502170518384_init1.resx">
-      <DependentUpon>201502170518384_init1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502180607146_init.resx">
+      <DependentUpon>201502180607146_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

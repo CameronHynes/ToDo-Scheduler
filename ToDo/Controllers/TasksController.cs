@@ -116,6 +116,23 @@ namespace ToDo.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Tasks/DeleteAll
+        public ActionResult DeleteAll()
+        {
+            return View(db.Tasks.ToList());
+        }
+
+        // POST: Tasks/DeleteAll
+        [HttpPost, ActionName("DeleteAll")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteAllConfirmed()
+        {
+            var tasks = db.Tasks;
+            db.Tasks.RemoveRange(tasks);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,28 +1,37 @@
 ﻿@model IEnumerable<ToDo.Models.Schedule>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Generated Schedules";
 }
 
-<h2>Index</h2>
+<h2>Generated Schedules</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
 
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+
     <tr>
+
         <th>
-            @Html.DisplayFor(modelItem => item.Worker.Name)
+            <text>Assigned Worker: &</text>
+            @if(item.Worker != null)
+            {
+                @Html.DisplayFor(modelItem => item.Worker.Name)
+            }
+            
         </th>
+        @if (item.Worker != null)
+        {
         <td>
             @Html.ActionLink("Edit", "../Workers/Edit", new { id=item.Worker.ID }) |
             @Html.ActionLink("Details", "../Workers/Details", new { id = item.Worker.ID }) |
             @Html.ActionLink("Delete", "../Workers/Delete", new { id = item.Worker.ID })
         </td>
+        }
     </tr>
+
     <tr>
         <th>Task Description</th>
         <th> Start time</th>

@@ -16,6 +16,7 @@ namespace ToDo.DAL
         }
 
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Worker> Workers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
